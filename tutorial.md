@@ -164,8 +164,8 @@ For example,Call this function from on_status to send a message when you are onl
 
 ```
 
-### Compilation
-It is recommended that you use a modern C/C++ compilers such as gcc(GCC 4.x or above) or clang .You can compile your code like below by including the library path to the Mesibo Shared Library  :
+### Compiling the code
+It is recommended that you use a modern C/C++ compiler such as gcc(GCC 4.x or above) or clang .You can compile your code like below by linking the Mesibo Shared Library :
 
 ```bash
 g++ testuser1.cpp -o user1 -lmesibo64
