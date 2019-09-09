@@ -60,12 +60,7 @@ class CNotify : public INotify {
     int printlen = len;
     if (printlen > 64) printlen = 64;
 
-   fprintf(stderr,
-        "===> test app message received: uid %u status %d channel %d type %u "
-        "id %" PRIx64 " refid %lu groupid %u, when %" PRIu64
-        " from %s, flag: %x len %d: %.*s\n",
-        p->uid, p->status, p->channel, p->type, p->id, p->refid, p->groupid,
-        p->when, from, p->flag, len, printlen, data);
+   fprintf(stderr,"===> on_message: You have recieved a message %.*s\n :printlen, data);
 
     return 1;
   }
@@ -73,17 +68,17 @@ class CNotify : public INotify {
   // Invoked when the status of outgoing or sent message is changed
   // You will receive status of sent messages here
   int on_messagestatus(tMessageParams * p, const char *from, int last) {
-    fprintf(stderr,
-        "===> on_messagestatus status %u id %u when %u ms (%u %u) from: %s\n",
-        p->status, p->id, m_api->timestamp() - p->when, m_api->timestamp(),
-        p->when, from ? from : "");
+    if(p->status == MESIBO_MSGSTATUS_SENT)
+        fprintf(stderr,"===> on_messagestatus :"Your message has been sent!");
     return 0;
   }
 
   // You will receive the connection status here
   int on_status(int status, uint32_t substatus, uint8_t channel,
                 const char *from) {
-    fprintf(stderr,"===> on_status: %u %u\n", status, substatus);
+    if(status ==  MESIBO_STATUS_ONLINE)  {              
+    fprintf(stderr,"===> on_status: "Mesibo is Online!  ");
+    }
     return 0;
   }
 
@@ -157,9 +152,9 @@ For example,Call this function from on_status to send a message when you are onl
 ```C++
   int on_status(int status, uint32_t substatus, uint8_t channel,
                 const char *from) {
-    fprintf(stderr,"===> on_status: %u %u\n", status, substatus);
+    fprintf(stderr,"===> on_status: Mesibo is Online! Sending Message to TestUser2 .. ");
     if (status == 1) {
-        send_text_message("TestUser2","Hello from Mesibo C/C++");
+        send_text_message(m_api, "TestUser2", "Hello from Mesibo C/C++");
     }
     return 0;
 
