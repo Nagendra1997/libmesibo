@@ -1,7 +1,14 @@
 
 ## Tutorial on using  the Mesibo C/C++ API
 
-This is a simple tutorial for sending/recieving a text-message using the open-source and Real-Time Mesibo C/C++ Library. 
+Mesibo on Linux is available as a shared library(.so) which allows you to use it from any application OR languages of your choice like C, C++, Python, PHP, Matlab etc.
+
+### OS requirements
+- CentOS / RedHat 7.x or above
+- Debian / Ubuntu
+- Mac OS
+
+This is a simple tutorial for sending/recieving a text-message using the entirely open-source and Real-Time Mesibo C/C++ Library. 
 
 ### Prerequisites
 Before you begin,
@@ -14,7 +21,7 @@ Let's get Real-Time !
 **1. Create your application**
 
 Create a new application from the [Mesibo console](https://mesibo.com/console)
-Once your application is created, note down the App token. The App Token looks like following:
+Once your application is created, note down the App token. The App Token looks like the following:
 ```
 **cn9cvk6gnm15e7lrjb2k7ggggax5h90n5x7dp4sam6kwitl2hmg4cmwabet4zgdw**
 ```
