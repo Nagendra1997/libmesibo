@@ -67,6 +67,7 @@ class CNotify : public INotify {
 
   // Invoked when the status of outgoing or sent message is changed
   // You will receive status of sent messages here
+  
   int on_messagestatus(tMessageParams * p, const char *from, int last) {
     if(p->status == MESIBO_MSGSTATUS_SENT)
         fprintf(stderr,"===> on_messagestatus :"Your message has been sent!");
