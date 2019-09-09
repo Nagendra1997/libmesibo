@@ -109,7 +109,7 @@ int main(){
   n->set_api(m_api);
 
   m_api->set_notify(0, n, 1);
-  m_api->set_credentials(APP_TOKEN);
+  m_api->set_credentials(AUTH_TOKEN);
 
   if (0 != m_api->set_database("mesibo.db")) {
     fprintf(stderr, "Database failed\n");
@@ -120,7 +120,6 @@ int main(){
 
   m_api->start();
 
-  keypress();
   return 0;
   }
 
