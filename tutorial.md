@@ -49,7 +49,7 @@ CNotify is a class of listeners that can be invoked to get real-time notificatio
 ```C++
 class CNotify : public INotify {
   IMesibo *m_api;
-  
+
   public:
   void set_api(IMesibo *api) { m_api = api; }
 
@@ -61,7 +61,7 @@ class CNotify : public INotify {
     int printlen = len;
     if (printlen > 64) printlen = 64;
 
-    ERRORLOG(
+   fprintf(stderr,
         "===> test app message received: uid %u status %d channel %d type %u "
         "id %" PRIx64 " refid %lu groupid %u, when %" PRIu64
         " from %s, flag: %x len %d: %.*s\n",
@@ -74,7 +74,7 @@ class CNotify : public INotify {
   // Invoked when the status of outgoing or sent message is changed
   // You will receive status of sent messages here
   int on_messagestatus(tMessageParams * p, const char *from, int last) {
-    ERRORLOG(
+    fprintf(stderr,
         "===> on_messagestatus status %u id %u when %u ms (%u %u) from: %s\n",
         p->status, p->id, m_api->timestamp() - p->when, m_api->timestamp(),
         p->when, from ? from : "");
@@ -84,11 +84,11 @@ class CNotify : public INotify {
   // You will receive the connection status here
   int on_status(int status, uint32_t substatus, uint8_t channel,
                 const char *from) {
-    ERRORLOG("===> on_status: %u %u\n", status, substatus);
+    fprintf(stderr,"===> on_status: %u %u\n", status, substatus);
     return 0;
   }
 
-
+}
 
 ```
 
@@ -108,12 +108,9 @@ int main(){
   IMesibo *m_api = query_mesibo("/tmp");
   n->set_api(m_api);
 
-  fprintf(stderr, "IMesibo %p\n", m_api);
-  int temp;
-  temp = m_api->set_notify(0, n, 1);
-  ERRORLOG(" set notify %d \n", temp);
-  temp = m_api->set_credentials(APP_TOKEN);
-  ERRORLOG("set credentials %d \n", temp);
+  m_api->set_notify(0, n, 1);
+  m_api->set_credentials(APP_TOKEN);
+
   if (0 != m_api->set_database("mesibo.db")) {
     fprintf(stderr, "Database failed\n");
     return -1;
@@ -126,6 +123,8 @@ int main(){
   keypress();
   return 0;
   }
+
+
 ```
 
 **3. Sending Messages**
@@ -149,7 +148,7 @@ For example,Call this function from on_status to send a message when you are onl
 ```C++
   int on_status(int status, uint32_t substatus, uint8_t channel,
                 const char *from) {
-    ERRORLOG("===> on_status: %u %u\n", status, substatus);
+    fprintf(stderr,"===> on_status: %u %u\n", status, substatus);
     if (status == 1) {
         send_text_message("TestUser","Hello from Mesibo C/C++");
     }
