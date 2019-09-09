@@ -43,7 +43,7 @@ You can include the Mesibo header file like so in your file:
 
 Mesibo invokes various Listeners for various events.
 For example, when you receive a message, receive an incoming call,etc.
-CNotify is a class of listeners that can be invoked to get real-time notification of events . INotify is the base class definition from which CNotify is derived from. You can override the notify class behaviour to perform as per your requirements.
+CNotify is a class of listeners that can be invoked to get real-time notification of events . INotify is the base class definition from which CNotify is derived from. You can override the notify class behaviour  as per your requirements.
 
 ```C++
 
