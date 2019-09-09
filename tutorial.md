@@ -35,7 +35,7 @@ Note the user address and the token for `TestUser1`.
 
 **2. Include the Mesibo header file**
 
-The required header file to use Mesibo in your C/C++ project is `mesibo.h`. Ensure that this file is present in your access path while compileation.
+The required header file to use Mesibo in your C/C++ project is `mesibo.h`. Ensure that this file is present in your path while compilation.
 You can include the Mesibo header file like so:
 
 ```C++
@@ -48,6 +48,8 @@ CNotify is a class of listeners that can be invoked to get real-time notificatio
 
 ```C++
 class CNotify : public INotify {
+  IMesibo *m_api;
+  
   IMesibo *m_api;
 
   // Invoked on receiving a new message or reading database messages
@@ -157,4 +159,14 @@ For example,Call this function from on_status to send a message when you are onl
     }
     return 0;
 
+```
+
+### Compilation
+It is recommended that you use a modern C/C++ compilers such as gcc(GCC 4.x or above) or clang . You can compile your code like below by including the library path to the Mesibo Shared Library  :
+```bash
+g++ test.cpp -o testoutput -lmesibo64
+```
+To obtain the output 
+```bash
+./testoutput
 ```
