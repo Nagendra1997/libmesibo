@@ -1,4 +1,3 @@
-
 ## Tutorial on using  the Mesibo C/C++ API
 
 Mesibo on Linux is available as a shared library(.so) which allows you to use it from any application OR languages of your choice like C, C++, Python, PHP, Matlab etc.
@@ -8,7 +7,7 @@ Mesibo on Linux is available as a shared library(.so) which allows you to use it
 - Debian / Ubuntu
 - Mac OS
 
-This is a simple tutorial for sending/recieving a text-message using the Real-Time Mesibo C/C++ Library. 
+This is a simple tutorial for sending/recieving a text-message using the entirely open-source and Real-Time Mesibo C/C++ Library. 
 
 ### Prerequisites
 Before you begin,
@@ -294,5 +293,4 @@ Now ,you can send a message from `TestUser1`. Run
 ```
 
 You should recieve the message "Hello from Mesibo C/C++" at `TestUser2` and the same should be printed out in your terminal.
-
-
+You can also send messages from the Mesibo console.   
