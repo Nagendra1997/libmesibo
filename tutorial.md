@@ -50,7 +50,9 @@ CNotify is a class of listeners that can be invoked to get real-time notificatio
 class CNotify : public INotify {
   IMesibo *m_api;
   
-  IMesibo *m_api;
+  public:
+  void set_api(IMesibo *api) { m_api = api; }
+
 
   // Invoked on receiving a new message or reading database messages
   // You will receive messages here.
