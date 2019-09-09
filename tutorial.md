@@ -21,10 +21,7 @@ Let's get Real-Time !
 **1. Create your application**
 
 Create a new application from the [Mesibo console](https://mesibo.com/console)
-Once your application is created, note down the App token. The App Token looks like the following:
-```
-**cn9cvk6gnm15e7lrjb2k7ggggax5h90n5x7dp4sam6kwitl2hmg4cmwabet4zgdw**
-```
+
 Create Users (Endpoints)
 
 Create users from the console by clicking on ‘New User’ button from the Application settings page. Create two users  named `TestUser1` and `TestUser2` and generate  access tokens for the users.
