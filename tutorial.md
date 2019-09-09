@@ -294,5 +294,5 @@ Now ,you can send a message from `TestUser1`. Run
 ```
 
 You should recieve the message "Hello from Mesibo C/C++" at `TestUser2` and the same should be printed out in your terminal.
-You can also send and recieve messages from the Mesibo console.   
+You can also send messages from the Mesibo console.   
 
