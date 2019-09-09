@@ -103,6 +103,7 @@ for `TestUser1` as noted in Step-2
 
 Initialization code :
 ```C++
+int main(){
   CNotify *n = new CNotify();
   IMesibo *m_api = query_mesibo("/tmp");
   n->set_api(m_api);
@@ -124,6 +125,7 @@ Initialization code :
 
   keypress();
   return 0;
+  }
 ```
 
 **3. Sending Messages**
