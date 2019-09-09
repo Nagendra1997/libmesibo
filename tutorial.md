@@ -85,14 +85,6 @@ class CNotify : public INotify {
   int on_status(int status, uint32_t substatus, uint8_t channel,
                 const char *from) {
     ERRORLOG("===> on_status: %u %u\n", status, substatus);
-    if (status == 1) {
-      tMessageParams p = {};
-      p.id = m_api->random32();
-      p.flag = MESIBO_FLAG_DELIVERYRECEIPT | MESIBO_FLAG_READRECEIPT;
-      p.uid = m_api->get_uid();
-      int return_val = m_api->message(&p, "Priya", "Hellof from Mesibo C/C++", 6);
-      ERRORLOG("%d send messge returned \n", return_val);
-    }
     return 0;
   }
 
