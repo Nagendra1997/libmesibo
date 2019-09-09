@@ -77,7 +77,7 @@ class CNotify : public INotify {
   int on_status(int status, uint32_t substatus, uint8_t channel,
                 const char *from) {
     if(status ==  MESIBO_STATUS_ONLINE)  {              
-    fprintf(stderr,"===> on_status: "Mesibo is Online!  ");
+    fprintf(stderr,"===> on_status: Mesibo is Online!  ");
     }
     return 0;
   }
