@@ -46,6 +46,10 @@ For example, when you receive a message, receive an incoming call,etc.
 CNotify is a class of listeners that can be invoked to get real-time notification of events . INotify is the base class definition from which CNotify is derived from. You can override the notify class behaviour to perform as per your requirements.
 
 ```C++
+
+#define MESIBO_STATUS_ONLINE 1
+#define MESIBO_MSGSTATUS_SENT 1
+
 class CNotify : public INotify {
   IMesibo *m_api;
 
