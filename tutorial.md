@@ -39,6 +39,11 @@ Now let’s quickly start coding:
 
 
 ```C++
+// Put your AUTH_TOKEN and APP_ID obtained from Mesibo Console
+#define APP_TOKEN "aea59d3713701704bed9fd5952d9419ba8c4209a335e664ef2g"
+#define APP_ID "myfirstapp"
+
+
 int main(){
   CNotify *n = new CNotify();
   IMesibo *m_api = query_mesibo("/tmp");
