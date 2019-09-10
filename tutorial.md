@@ -18,7 +18,7 @@ Before you begin,
 Real-Time C/C++ shared Library by referring to the installation
 instructions [here](https://mesibo.com/documentation/install/linux/) -
 
--Also, please go through [Get
+- Also, please go through [Get
 Started](https://mesibo.com/documentation/get-started/) guide to gain a basic understanding of Mesibo 
 
 - Refer to [Write your First mesibo Enabled
