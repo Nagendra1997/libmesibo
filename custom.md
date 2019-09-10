@@ -257,7 +257,7 @@ Create `activity_messaging.xml`
    <!-- <include layout="@layout/chat_box_new" /> -->
 </android.support.design.widget.CoordinatorLayout>
 ```
-###Create MessagingActivity.java
+### Create MessagingActivity.java
 
 Create a messaging activity and get the peer(destination) through intent. Then you need to load a 
 
