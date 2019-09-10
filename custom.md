@@ -368,7 +368,5 @@ Intent i = new Intent(this,MessagingActivity.class);
 ```        
 
 
-### Conclusion
 
-Using the approach in this tutorial ,you can adapt the same set of steps to customise any UI component,even on a different platform such as iOS. 
 
