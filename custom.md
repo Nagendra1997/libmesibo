@@ -1,7 +1,15 @@
 ## Customizing MesiboUI 
 
-You can customize every element of Mesibo chat. Eeverything in your application can be  built on Mesibo to suit your requirements and branding.
+You can customize every element of Mesibo chat. Everything in your application can be built on Mesibo to suit your requirements and branding. This tutorial focuses on customising your the UI in a Mesibo Android Application.You can follow a similar procedure to customise your UI in iOS,React,etc 
 
+## PreRequisites
+Before we dive into customisation,please checkout the following:
+- The [Getting Started](https://mesibo.com/documentation/get-started/) guide
+- Tutorial on Writing your First mesibo Enabled Application(https://mesibo.com/documentation/tutorials/first-app/)
+- [Mesibo API documentation for Android](https://mesibo.com/documentation/install/android/)
+- Check out our fully featured WhatsApp clone using Mesibo [here](https://mesibo.com/documentation/tutorials/open-source-whatsapp-clone/)
+
+## The UI elements
 The two basic elements that form the chat application are
 - Incoming chat view
 - Outgoing chat view
@@ -45,7 +53,7 @@ public class MessagingUiFragment extends MesiboMessagingFragment implements Mesi
    }
 
    @Override
-   public void Mesibo_oUpdateViewHolder(MesiboRecycleViewHolder mesiboRecycleViewHolder, Mesibo.MesiboMessage mesiboMessage) {
+   public void Mesibo_UpdateViewHolder(MesiboRecycleViewHolder mesiboRecycleViewHolder, Mesibo.MesiboMessage mesiboMessage) {
 
    }
 
