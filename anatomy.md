@@ -11,9 +11,9 @@ Sending data
 To send data from one endpoint to another is remarkably simple using Mesibo. Based on the type of data you need to send there are a wide range of API functions you can use.You can also interact with your database in which case you will be sending a message to the database ie; A query 
 
 For example,
-to send a text message you can use `sendMessage()`
-to send a file ,such as an image you can use `sendFile()`
-to read messages from database you can use `read()`
+- to send a text message you can use `sendMessage()`
+- to send a file ,such as an image you can use `sendFile()`
+- to read messages from database you can use `read()`
 
 Recieving data
 ------------
