@@ -1,13 +1,11 @@
-Anatomy of Mesibo Application
-========
+## Anatomy of Mesibo Application
 
 Mesibo is designed to be a cross-platform API ,maintaining the same API signature and performance across all platforms.
 There are two components that form any Mesibo Application:
 - Sending data, implemented by a functional interface
 - Recieving the data ,implemented by a callback interface
 
-Sending data
---------
+## Sending data
 To send data from one endpoint to another is remarkably simple using Mesibo. Based on the type of data you need to send there are a wide range of API functions you can use.You can also interact with your database in which case you will be sending a message to the database ie; A query 
 
 For example,
@@ -15,8 +13,8 @@ For example,
 - to send a file ,such as an image you can use `sendFile()`
 - to read messages from database you can use `read()`
 
-Recieving data
-------------
+## Recieving data
+
 When you send data/query you will get a `response`. This response is delivered through a callback interface. 
 
 ### What is a callback?
@@ -56,8 +54,8 @@ Invoked on receiving a new message or reading database messages. This callback f
 
 
 
-Initialising Mesibo
-----------
+### Initialising Mesibo
+
 Before you run Mesibo you need to initialise it. The initialisation involves following steps:
 1. Set your app credentials for authentication: access token and app ID / app name.
 2. Connecting your listener class
