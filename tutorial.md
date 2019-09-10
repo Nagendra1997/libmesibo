@@ -47,7 +47,7 @@ The required header file to use Mesibo in your C/C++ project is `mesibo.h`. Ensu
 #include <mesibo.h>
 ```
 
-As explained in the tutorial, [Anatomy of Mesibo Application](https://mesibo.com).Mesibo invokes various Listeners for various events. For example, when you receive a message, receive an incoming call, etc. CNotify is a class of listeners that can be invoked to get real-time notification of events. INotify is the base class definition from which CNotify is derived
+As explained in the tutorial, [Anatomy of Mesibo Application](https://mesibo.com). Mesibo invokes various Listeners for various events. For example, when you receive a message, receive an incoming call, etc. CNotify is a class of listeners that can be invoked to get real-time notification of events. INotify is the base class definition from which CNotify is derived
 from. You can override the notify class behavior as per your requirements.
 
 ```C++
