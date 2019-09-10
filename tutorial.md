@@ -36,14 +36,14 @@ Now let’s quickly start coding:
 ```C++
 #include <mesibo.h>
 
+```
+
+```C++
+
 #include <stdlib.h>
 #include <termios.h>
 #include <unistd.h>
 
-```
-
-
-```C++
 
 // Put your AUTH_TOKEN and APP_ID obtained from Mesibo Console
 #define AUTH_TOKEN "aea59d3713701704bed9fd5952d9419ba8c4209a335e664ef2g"
