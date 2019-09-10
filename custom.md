@@ -276,10 +276,7 @@ For this we will be creating a XML file called `activity_messaging.xml`
        android:layout_height="wrap_content"
        android:theme="@style/AppTheme.AppBarOverlay">    
    </android.support.design.widget.AppBarLayout>
-
-   <!-- https://stackoverflow.com/questions/32956071/add-views-below-toolbar-in-coordinatorlayout
-    layout_behavior is important
-   -->
+   
    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
        android:id="@+id/fragment_container"
        android:layout_width="match_parent"
