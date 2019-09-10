@@ -24,6 +24,8 @@ Started](https://mesibo.com/documentation/get-started/) guide to gain a basic un
 - Refer to [Write your First mesibo Enabled
 Application](https://mesibo.com/documentation/tutorials/first-app/) for information on how to create users and obtain the access token
 
+- For information on using the Mesibo API and listener class refer to [Anatomy of Mesibo Application](https://mesibo.com)
+
 Let's get Real-Time!
 
 **1. Create your application**
@@ -56,6 +58,7 @@ file:
 #include <mesibo.h>
 ```
 
+As explained in the tutorial, [Anatomy of Mesibo Application](https://mesibo.com)
 Mesibo invokes various Listeners for various events. For example, when
 you receive a message, receive an incoming call, etc. CNotify is a class
 of listeners that can be invoked to get real-time notification of events
