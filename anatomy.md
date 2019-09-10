@@ -27,13 +27,17 @@ A callback is a function that gets triggered based on a signal/event. The event 
 Mesibo invokes various Listeners for various events.These listener functions have a callback interface.
 Mesibo provides a class of Listeners that can be invoked to get real-time notification of events.You can override the notify class behaviour as per your requirements.
 
-Following are individual listeners:
-- mesibo_onMessageStatus
+Following are some of the individual [listeners](https://mesibo.com/documentation/api/listeners/):
+
 - mesibo_onConnectionStatus
+- mesibo_onMessageStatus
 - mesibo_onMessage
 - mesibo_onFile
 - mesibo_onLocation
 - mesibo_onActivity
+
+### onConnectionStatus 
+Invoked when the connection status is changed.There are different connection status codes corresponding to which you can get to know you whether your connection is online/offline. 
 
 ### onMessageStatus
 Invoked when the status of outgoing or sent message is changed .You will receive status of sent messages here
@@ -46,8 +50,6 @@ When you send a message,you expect a delievery status :
 
 So,when you send a message using the `sendMessage` API function ,you need a way to know the status of your message. To help you with this there is callback function called `onMessageStatus` which will let you know the status of your message. The message parameters will have a variable called `status` ,which changes as it goes through the steps sent-->Recieved-->Delievered. A change in message `status` is an event and this event will trigger the function `onMessageStatus`.
 
-### onConnectionStatus
-Invoked when the connection status is changed.There are different connection status codes corresponding to which you can get to know you whether your connection is online/offline.
 
 ### onMessage
 Invoked on receiving a new message or reading database messages. This callback function will notify you when a message is recieved. The message parameters of this function will contain the `peer` which will inform you who sent the message and the `data` parameter will contain the message data.
