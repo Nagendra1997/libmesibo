@@ -40,9 +40,6 @@ Now let’s quickly start coding:
 
 ```C++
 
-
-
-
 void mesibo_init(){
   CNotify *n = new CNotify();
   IMesibo *m_api = query_mesibo("/tmp");
