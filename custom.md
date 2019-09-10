@@ -361,9 +361,11 @@ private Mesibo.UserProfile mUser=null;
 ### Run your custom view
 Now if you need to see your custom UI you need to run the MessagingActivity for your custom view. 
 
+```java
 Intent i = new Intent(this,MessagingActivity.class);
         i.putExtra("peer",Constants.PHONE);
          startActivity(i);
+```        
 
 
 ### Conclusion
