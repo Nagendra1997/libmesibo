@@ -207,14 +207,14 @@ int send_text_message(IMesibo* m_api,const char* to,const char * message){
 }
 
 ```
-For example, Call this function from on_status to send a message when you are online.
+For example, Call this function from `on_status` to send a message when you are online.
 
 ```C++
   int on_status(int status, uint32_t substatus, uint8_t channel,
                 const char *from) {
     fprintf(stderr,"===> on_status: Mesibo is Online! Sending Message to TestUser .. ");
     if (status == 1) {
-        send_text_message(m_api, "TestUser2", "Hello from Mesibo C/C++. I am Online!");
+        send_text_message(m_api, "TestUser", "Hello from Mesibo C/C++. I am Online!");
     }
     return 0;
 
