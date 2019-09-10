@@ -1,8 +1,9 @@
 ## Tutorial on using  the Mesibo C/C++ API
 
-Mesibo on Linux is available as a shared library(.so) which allows you
-to use it from any application OR languages of your choice like C, C++,
-Python, PHP, Matlab, etc.
+Mesibo on Linux is available as a shared library(.so) which allows you to use it from any application OR languages of your choice like C, C++,Python, PHP, Matlab, etc.
+
+The Mesibo C/C++ library can be seamlessly integrated into your application on any platform, with custom extensions/wrappers.
+
 
 ### OS requirements
 - CentOS / RedHat 7.x or above
@@ -14,15 +15,12 @@ This is a simple tutorial for sending/receiving a text message using the Real-Ti
 ### Prerequisites
 
 Before you begin, 
-- Please ensure that you have installed the Mesibo
-Real-Time C/C++ shared Library by referring to the installation
+- Please ensure that you have installed the Mesibo Real-Time C/C++ shared Library by referring to the installation
 instructions [here](https://mesibo.com/documentation/install/linux/) -
 
-- Also, please go through [Get
-Started](https://mesibo.com/documentation/get-started/) guide to gain a basic understanding of Mesibo 
+- Also, please go through [Get Started](https://mesibo.com/documentation/get-started/) guide to gain a basic understanding of Mesibo 
 
-- Refer to [Write your First mesibo Enabled
-Application](https://mesibo.com/documentation/tutorials/first-app/) for information on how to create users and obtain the access token
+- Refer to [Write your First mesibo Enabled Application](https://mesibo.com/documentation/tutorials/first-app/) for information on how to create users and obtain the access token
 
 - For information on using the Mesibo API and listener class refer to [Anatomy of Mesibo Application](https://mesibo.com)
 
@@ -35,36 +33,22 @@ Let's get Real-Time!
 
 -   Create Users (Endpoints)
 
-Create users from the console by clicking on the ‘New User’ button from the
-Application settings page. Create two users named `TestUser1` and
-`TestUser2` and generate access tokens for the users with your App
-Id. For example, the App Id could be `my_cpp_app`.
+Create users from the console by clicking on the ‘New User’ button from the Application settings page. Create two users named `TestUser1` and `TestUser2` and generate access tokens for the users with your App Id. For example, the App Id could be `my_cpp_app`.
 
-Please refer to our tutorial [Write your First mesibo Enabled
-Application](https://mesibo.com/documentation/tutorials/first-app/)
-about creating users for more information.
+Please refer to our tutorial [Write your First mesibo Enabled Application](https://mesibo.com/documentation/tutorials/first-app/) about creating users for more information.
 
-We will be communicating between `TestUser1` and `TestUser2`. Note the
-Auth token and the App ID for users `TestUser1` and `TestUser2`.
+We will be communicating between `TestUser1` and `TestUser2`. Note the Auth token and the App ID for users `TestUser1` and `TestUser2`.
 
 **2. Include the Mesibo header file**
 
-The required header file to use Mesibo in your C/C++ project is
-`mesibo.h`. Ensure that this file is present in your path while
-compilation. You can include the Mesibo header file like so in your
-file:
+The required header file to use Mesibo in your C/C++ project is `mesibo.h`. Ensure that this file is present in your path while compilation. You can include the Mesibo header file like so in your file:
 
 ```C++
 #include <mesibo.h>
 ```
 
-As explained in the tutorial, [Anatomy of Mesibo Application](https://mesibo.com)
-Mesibo invokes various Listeners for various events. For example, when
-you receive a message, receive an incoming call, etc. CNotify is a class
-of listeners that can be invoked to get real-time notification of events
-. INotify is the base class definition from which CNotify is derived
-from. You can override the notify class behavior as per your
-requirements.
+As explained in the tutorial, [Anatomy of Mesibo Application](https://mesibo.com).Mesibo invokes various Listeners for various events. For example, when you receive a message, receive an incoming call, etc. CNotify is a class of listeners that can be invoked to get real-time notification of events. INotify is the base class definition from which CNotify is derived
+from. You can override the notify class behavior as per your requirements.
 
 ```C++
 
@@ -76,6 +60,16 @@ class CNotify : public INotify {
 
   public:
   void set_api(IMesibo *api) { m_api = api; }
+  
+  
+  // You will receive the connection status here
+  int on_status(int status, uint32_t substatus, uint8_t channel,
+                const char *from) {
+    if(status ==  MESIBO_STATUS_ONLINE)  {              
+    fprintf(stderr,"===> on_status: Mesibo is Online!  ");
+    }
+    return 0;
+  }
 
 
   // Invoked on receiving a new message or reading database messages
@@ -98,22 +92,13 @@ class CNotify : public INotify {
     return 0;
   }
 
-  // You will receive the connection status here
-  int on_status(int status, uint32_t substatus, uint8_t channel,
-                const char *from) {
-    if(status ==  MESIBO_STATUS_ONLINE)  {              
-    fprintf(stderr,"===> on_status: Mesibo is Online!  ");
-    }
-    return 0;
-  }
 
 }
 
 
 ```
 
-You need to initialise Mesibo for `TestUser1`. Enter the `AUTH TOKEN` and `APP ID`
-for `TestUser1` as noted in Step-2
+You need to initialise Mesibo for `TestUser1`. Enter the `AUTH TOKEN` and `APP ID` for `TestUser1` as noted in Step-2
 
 ```C++
 //For TestUser1
@@ -158,9 +143,7 @@ You can run the same code to initialise `TestUser2`,you just need to change the 
 
 We will be sending a message from `TestUser1` to `TestUser2`.
 
-To send messages, you can use message real-time API for which you will
-need destination user, message-id which should be included in the
-the structure defined by `tMessageParms` and the message itself.
+To send messages, you can use message real-time API for which you will need destination user, message-id which should be included in the the structure defined by `tMessageParms` and the message itself.
 
 ```C++
 int send_text_message(IMesibo* m_api,const char* to,const char * message){
@@ -189,9 +172,7 @@ For example,Call this function from on_status to send a message when you are onl
 
 ### Compiling the code
 
-It is recommended that you use a modern C/C++ compiler such as gcc(GCC
-4.x or above) or clang. You can compile your code like below by linking
-the Mesibo Shared Library :
+It is recommended that you use a modern C/C++ compiler such as gcc(GCC 4.x or above) or clang. You can compile your code like below by linking the Mesibo Shared Library :
 
 ```bash
 g++ testuser1.cpp -o user1 -lmesibo64
@@ -201,8 +182,7 @@ Run the files
 ```bash
 ./user2
 ```
-Note that the Connection status for `TestUser2` is online. You can
-verify it from the console of your app. Now, you can send a message from
+Note that the Connection status for `TestUser2` is online. You can verify it from the console of your app. Now, you can send a message from
 ```
 ./user1
 ```
