@@ -1,8 +1,8 @@
 ## Tutorial on using  the Mesibo C/C++ API
 
-The Mesibo C/C++ library can be seamlessly integrated into your application on any platform, with custom extensions/wrappers. To compile your C/C++ application with Mesibo,you need to link it with the Mesibo  Library File.On Linux based OS, Mesibo is available as a shared library(.so) which allows you to use it from any application OR languages of your choice like C, C++,Python, PHP, Matlab, etc.
+The Mesibo C/C++ library can be seamlessly integrated into your application on any platform, with custom extensions/wrappers. To compile your C/C++ application with Mesibo, you need to link it with the Mesibo  Library File. On any Linux based system, Mesibo is available as a shared library(.so) which allows you to use it from any application OR languages of your choice like C, C++, Python, PHP, Matlab, etc.
 
-In this part we will create a simple real-time app using C++.
+In this part, we will create a simple real-time app using C++.
 
 ### OS requirements
 - CentOS / RedHat 7.x or above
@@ -13,7 +13,7 @@ In this part we will create a simple real-time app using C++.
 
 ### Prerequisites
 
-You MUST go through following prerequisites before you read further.
+You MUST go through the following prerequisites before you read further.
 
 - Installed the Mesibo Real-Time C/C++ shared Library by referring to the installation instructions 
   [here](https://mesibo.com/documentation/install/linux/) -
@@ -109,8 +109,8 @@ class CNotify : public INotify {
 
   }
 
-  // Invoked when the status of outgoing or sent message is changed
-  // You will receive status of sent messages here
+  // Invoked when the status of the outgoing or sent message is changed
+  // You will receive the status of sent messages here
   int on_messagestatus(tMessageParams * p, const char *from, int last) {
    ERRORLOG(
         "===> on_messagestatus status %u id %u when %u ms (%u %u) from: %s\n",
@@ -162,19 +162,19 @@ Run the output file
 ./myfirstapp
 ```
 
-2. `on_status` should cycle through various status information. Finally, you should receive status=1 which indicates that your app is successfully connected to mesibo real-time server and ready to send and receive real-time messages.
+2. `on_status` should cycle through various status information. Finally, you should receive status=1 which indicates that your app is successfully connected to the mesibo real-time server and ready to send and receive real-time messages.
 
 3. Since we do not have any other users right now, we will use **mesibo console** to send a test message. In a later section, we will learn how to send messages from the code itself.
 
 - Go to **Console ->Application->Users**. You should see the user you have created.
 
-- Go to user details by clicking `Edit` button. Scroll down, you will see a section to `Message User`
+- Go to user details by clicking the `Edit` button. Scroll down, you will see a section to `Message User`
 Enter 1000 (or anything) in `From` field, check `Create This User` checkbox, type message and click on `Send`.
 
 4. You will instantly receive this message in your console/terminal in `on_message` listener.
 
 ## Sending Messages
-In previous section, we have used mesibo console to send a message. Now we will quickly learn how to send messages from the code itself. To send messages, we will use `message` real-time API for which we will need destination user, message id and the message itself.
+In the previous section, we have used mesibo console to send a message. Now we will quickly learn how to send messages from the code itself. To send messages, we will use `message` real-time API for which we will need destination user, message-id and the message itself.
 
 Invoke the following function anywhere from your code to send a text message. 
 
@@ -188,7 +188,7 @@ int send_text_message(IMesibo* m_api,const char* to,const char * message){
 }
 
 ```
-For example,Call this function from on_status to send a message when you are online.
+For example, Call this function from on_status to send a message when you are online.
 
 ```C++
   int on_status(int status, uint32_t substatus, uint8_t channel,
@@ -201,4 +201,4 @@ For example,Call this function from on_status to send a message when you are onl
 
 ```
 
-That’s it! Try it out by creating two users and send messages to each other by using above function.
+That’s it! Try it out by creating two users and send messages to each other by using the above function.
