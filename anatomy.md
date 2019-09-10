@@ -6,7 +6,7 @@ Mesibo is designed to be a cross-platform API, maintaining the same API signatur
 
 ## Sending the data
 
-To send data from one endpoint to another is remarkably simple using Mesibo. Based on the type of data you need to send there is a wide range of API functions you can use. You can also interact with your database in which case you will be sending a message to the database ie-a query
+To send data from one endpoint to another is remarkably simple using Mesibo. Based on the type of data you need to send there is a wide range of [Real-Time API](https://mesibo.com/documentation/api/real-time-api/) functions you can use. You can also interact with your database in which case you will be sending a message to the database ie-a query
 
 
 For example,
