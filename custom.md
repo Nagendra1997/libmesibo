@@ -160,7 +160,7 @@ public class IncomingMessgaeViewHolder extends MesiboRecycleViewHolder {
 ```
 
 ### Full MessagingUIFragment()
-```
+```java
 public class MessagingUiFragment extends MesiboMessagingFragment implements MesiboRecycleViewHolder.Listener {
 
 public class IncomingMessgaeViewHolder extends MesiboRecycleViewHolder {
