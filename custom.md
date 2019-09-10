@@ -339,7 +339,5 @@ private Mesibo.UserProfile mUser=null;
 
 
 ```
-###Conclusion
+### Conclusion
 
-The RecyclerView is a flexible pattern for view recycling eliminating the imitations of ListView and GridView by making item animations easy to set and reuse. Getting used to development with RecyclerView may need some work at first, but it’s worth your time.
-If you have any questions or comments please let me know below.
