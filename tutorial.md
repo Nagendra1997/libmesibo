@@ -2,7 +2,7 @@
 
 The Mesibo C/C++ library can be seamlessly integrated into your application on any platform, with custom extensions/wrappers. To compile your C/C++ application with Mesibo, you need to link it with the Mesibo  Library File. On any Linux based system, Mesibo is available as a shared library(.so) which allows you to use it from any application OR languages of your choice like C, C++, Python, PHP, Matlab, etc.
 
-In this part, we will create a simple real-time app using C++.
+In this part, we will create a simple real-time app using C/C++.
 
 ### OS requirements
 - CentOS / RedHat 7.x or above
