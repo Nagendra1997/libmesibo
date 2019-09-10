@@ -31,9 +31,19 @@ implementation 'com.mesibo.api:mesibo:1.0.87'
 ```
 Sync Gradle and you are all set.
 
-## Create MessagingUIFragment.java
 
-Create the MessagingUiFragment that extends MesiboMessagingFragment. Here you have a recyclerView that is populated whenever there is a message sent or received.
+In order to have your own custom chat layout, you need to have one MessagingActivity class and one MessagingUiFragment class.
+
+MessagingActivity.java loads MessagingUIFragment which has MesiboRecyclerView and Adapter. MesiboUiFragment has your custom view.
+Lets create them one by one:
+
+
+
+## 1. Create MessagingUIFragment.java
+
+Create the MessagingUiFragment that extends MesiboMessagingFragment. 
+
+
 ```java
 public class MessagingUiFragment extends MesiboMessagingFragment implements MesiboRecycleViewHolder.Listener {
    @Override
@@ -167,7 +177,7 @@ public class IncomingMessgaeViewHolder extends MesiboRecycleViewHolder {
 }
 ```
 
-### Full MessagingUIFragment()
+### Full MessagingUIFragment() code
 ```java
 public class MessagingUiFragment extends MesiboMessagingFragment implements MesiboRecycleViewHolder.Listener {
 
