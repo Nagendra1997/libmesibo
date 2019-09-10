@@ -31,7 +31,7 @@ Now let’s quickly start coding:
 
 1. Open a Code Editor
 2. Include <mesibo.h> in your file
-3. Add mesibo initialization code in your `main()` function.
+3. Add mesibo initialization code in your init function.
 
 ```C++
 #include <mesibo.h>
@@ -40,46 +40,30 @@ Now let’s quickly start coding:
 
 ```C++
 
-#include <stdlib.h>
-#include <termios.h>
-#include <unistd.h>
 
 
-// Put your AUTH_TOKEN and APP_ID obtained from Mesibo Console
-#define AUTH_TOKEN "aea59d3713701704bed9fd5952d9419ba8c4209a335e664ef2g"
-#define APP_ID "myfirstapp"
 
-#define ERRORLOG(format, ...)               \
-  do {                                      \
-    fprintf(stderr, format, ##__VA_ARGS__); \
-  } while (0)
-
-int gDebugEnabled = 1;
-
-
-class CNotify;
-int keypress();
-
-int main(){
+void mesibo_init(){
   CNotify *n = new CNotify();
   IMesibo *m_api = query_mesibo("/tmp");
   n->set_api(m_api);
 
   m_api->set_notify(0, n, 1);
-  m_api->set_credentials(AUTH_TOKEN);
+  
+  // Put your AUTH_TOKEN obtained from Mesibo Console
+  m_api->set_credentials("aea59d3713701704bed9fd5952d9419ba8c4209a335e664ef2g");
 
   if (0 != m_api->set_database("mesibo.db")) {
     fprintf(stderr, "Database failed\n");
     return -1;
   }
-
-  m_api->set_device(1, "MyDeviceId", APP_ID, "1.0.0");
-  m_api->start();
   
-  keypress();
+  // Put your APP_ID obtained from Mesibo Console
+  m_api->set_device(1, "MyDeviceId", myappid, "1.0.0");
+  m_api->start();
+ 
   return 0;
   }
-
 
 ```
 
@@ -180,27 +164,6 @@ class CNotify : public INotify {
   }
 
 };
-
-
-// To exit the program on key press
-int keypress() {
-  struct termios old_state, new_state;
-  int c;
-
-  tcgetattr(STDIN_FILENO, &old_state);
-  new_state = old_state;
-
-  new_state.c_lflag &= ~(ECHO | ICANON);
-  new_state.c_cc[VMIN] = 1;
-
-  tcsetattr(STDIN_FILENO, TCSANOW, &new_state);
-
-  c = getchar();
-
-  /* restore the saved state */
-  tcsetattr(STDIN_FILENO, TCSANOW, &old_state);
-  return c;
-}
 
 
 ```
