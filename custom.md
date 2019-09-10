@@ -1,6 +1,5 @@
-## Customizing MesiboUI 
-
-You can customize every element of Mesibo chat. Everything in your application can be built on Mesibo to suit your requirements and branding. This tutorial focuses on customising  the UI in a Mesibo Android Application.You can follow a similar procedure to customise your UI in iOS, React, etc 
+## Customizing MesiboUI
+You can customize every element of Mesibo chat. Everything in your application can be built on Mesibo to suit your requirements and branding. This tutorial focuses on customizing the UI in a Mesibo Android Application. You can follow a similar procedure to customize your UI in iOS, React, etc
 
 ## PreRequisites
 Before we dive into customisation, please checkout the following:
@@ -14,11 +13,12 @@ The two basic elements that form a chat application are
 - Incoming chat view
 - Outgoing chat view
 
-Mesibo chat view is a recycler view that contains the incoming chat view and outgoing chat view, which adds Items(here messages) when a message is sent or recieved.
+Mesibo chat view is a recycler view that contains the incoming chat view and outgoing chat view, which adds Items(here messages) when a message is sent or received.
 
-Follow the steps below to customise your Mesibo Application UI .
+Follow the steps below to customize your Mesibo Application UI.
 
 ## Add dependencies
+
 Open the file build.gradle of your application and add the dependencies needed.
 
 ```java
@@ -41,7 +41,7 @@ Lets implement them one by one:
 
 ## 1. Create MessagingUIFragment.java
 
-MesiboUiFragment extends MesiboMessagingFragment present in the core Mesibo Library.
+`MesiboUiFragment` extends `MesiboMessagingFragment` present in the core Mesibo Library.
 Here, we will be creating our custom view. The UI will be updated from this fragment. 
 
 The basic function structure should look like below. This is similar to the implementation of a RecyclerView and Adapter.
@@ -92,8 +92,8 @@ This method returns the type of message i.e Incoming message or Outgoing message
 
 
 ### Mesibo_onCreateViewHolder
-In this method type of message(Incoming and Outgoing) is checked . Based on the type you can return your own custom view or return null to load default view.
 
+In this method type of message(Incoming and Outgoing) is checked. Based on the type you can return your custom view or return null to load default view.
 ```java
   if (MesiboRecycleViewHolder.TYPE_INCOMING == type) {
            View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.incoming_chat_layout, viewGroup, false);
@@ -106,7 +106,7 @@ In this method type of message(Incoming and Outgoing) is checked . Based on the 
 
 ### Mesibo_onBindViewHolder()
 
-This method binds the returned view and the messages. 
+This method binds the returned view and messages.
 
 ```java
 if (type == MesiboRecycleViewHolder.TYPE_INCOMING) {
@@ -118,11 +118,11 @@ IncomingView.mIncomingMessageTV.setText(Html.fromHtml(mesiboMessage.message));
 ```
 
 ## Create a custom row Layout inside MessagingUIFragment.java 
-The UI customisation can be done by creating a view holder with different types like incoming view, outgoing view, etc which will be returned in Mesibo_onCreateViewHolder.
 
-To customise your view holder, you need to create row Layout.
+The UI customization can be done by creating a view holder with different types like incoming view, outgoing view, etc which will be returned in `Mesibo_onCreateViewHolder`.
+To customize your view holder, you need to create a row Layout.
 
-First create a file named `incoming_chat_layout.xml` that describes the display component attributes. A sample xml file with TextView which is used to show the message(incoming) is as follows:
+First, create a file named `incoming_chat_layout.xml` that describes the display component attributes. A sample XML file with TextView which is used to show the message(incoming) is as follows:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -164,12 +164,12 @@ First create a file named `incoming_chat_layout.xml` that describes the display 
 }
 ```
 Depending on what you require custom views can be created for header view, outgoing view, custom view or any other view.
-
-
 Now, you need to add your custom view holder to your fragment.
 
 ### Creating the ViewHolder
-The MesiboRecyclerView uses a ViewHolder to store the references to the relevant views for one entry in the RecyclerView. This solution avoids all the findViewById() method calls .
+The MesiboRecyclerView uses a ViewHolder to store the references to the relevant views for one entry in the RecyclerView. This solution avoids all the findViewById() method calls.
+
+
 
 ```java
 public class IncomingMessgaeViewHolder extends MesiboRecycleViewHolder {
@@ -184,7 +184,7 @@ public class IncomingMessgaeViewHolder extends MesiboRecycleViewHolder {
 }
 ```
 
-You can find the complete code for your MessagingUIFragment below.
+You can find the complete code for your `MessagingUIFragment` below.
 
 ### Full MessagingUIFragment() code
 ```java
@@ -255,9 +255,9 @@ IncomingView.mIncomingMessageTV.setText(Html.fromHtml(mesiboMessage.message));
 
 
 ## 2. Creating your Activity 
-This activity loads the custom MessagingUIFragment that is created in the previous step.
+This activity loads the custom `MessagingUIFragment` that is created in the previous step.
 
-For this we will be creating a XML file called `activity_messaging.xml`
+For this, we will be creating an XML file called `activity_messaging.xml`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -288,7 +288,7 @@ For this we will be creating a XML file called `activity_messaging.xml`
 ```
 
 
-Create  `MessagingActivity` and get the peer(destination) through intent. Mesibo MesiboMessagingFragment requires the peer value to load the chat UI for that user .This activity is called from where you want to launch your own customized message UI. 
+Create  `MessagingActivity` and get the peer(destination) through intent. Mesibo MesiboMessagingFragment requires the peer value to load the chat UI for that user .This activity is called from the segment where you need to launch your own customized message UI. 
 
 ```java
 
@@ -359,7 +359,7 @@ private Mesibo.UserProfile mUser=null;
 
 ```
 ### Run your custom view
-Now if you need to see your custom UI you need to run the MessagingActivity for your custom view. 
+Now if you need to see your custom UI you need to run the `MessagingActivity` for your custom view.
 
 ```java
 Intent i = new Intent(this,MessagingActivity.class);
