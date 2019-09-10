@@ -3,14 +3,14 @@
 Mesibo is designed to be a cross-platform API ,maintaining the same API signature and performance across all platforms.
 There are two components that form any Mesibo Application:
 - Sending data, implemented by a functional interface
-- Recieving the data ,implemented by a callback interface
+- Recieving the data, implemented by a callback interface
 
 ## Sending data
 To send data from one endpoint to another is remarkably simple using Mesibo. Based on the type of data you need to send there are a wide range of API functions you can use.You can also interact with your database in which case you will be sending a message to the database ie; A query 
 
 For example,
 - to send a text message you can use `sendMessage()`
-- to send a file ,such as an image you can use `sendFile()`
+- to send a file, such as an image you can use `sendFile()`
 - to read messages from database you can use `read()`
 
 ## Recieving data
@@ -41,12 +41,12 @@ Invoked when the connection status is changed.There are different connection sta
 Invoked when the status of outgoing or sent message is changed .You will receive status of sent messages here
 
 For example,
-When you send a message,you expect a delievery status : 
+When you send a message, you expect a delievery status : 
 - sent from device
 - recieved by recipient
 - read by recipient
 
-So,when you send a message using the `sendMessage` API function ,you need a way to know the status of your message. To help you with this there is callback function called `onMessageStatus` which will let you know the status of your message. The message parameters will have a variable called `status` ,which changes as it goes through the steps sent-->Recieved-->Delievered. A change in message `status` is an event and this event will trigger the function `onMessageStatus`.
+So, when you send a message using the `sendMessage` API function, you need a way to know the status of your message. To help you with this there is callback function called `onMessageStatus` which will let you know the status of your message. The message parameters will have a variable called `status`, which changes as it goes through the steps sent-->Recieved-->Delievered. A change in message `status` is an event and this event will trigger the function `onMessageStatus`.
 
 
 ### onMessage
