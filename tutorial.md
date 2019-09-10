@@ -16,7 +16,7 @@ In this part, we will create a simple real-time app using C++.
 You MUST go through the following prerequisites before you read further.
 
 - Installed the Mesibo Real-Time C/C++ shared Library by referring to the installation instructions 
-  [here](https://mesibo.com/documentation/install/linux/) -
+  [here](https://mesibo.com/documentation/install/linux/) 
 
 - Read the [Preparation Guide](https://mesibo.com/documentation/tutorials/first-app/)
 
