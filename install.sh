@@ -3,7 +3,7 @@
 # https://github.com/mesibo/libmesibo
 # 
 # Usage:
-# curl -s https://raw.githubusercontent.com/mesibo/libmesibo/master/install.sh | sudo bash -
+# curl -s https://raw.githubusercontent.com/Nagendra1997/libmesibo/master/install.sh | sudo bash -
 #
 
 # Installs libmesibo on Mac or Linux.
@@ -20,16 +20,16 @@
 
 install_mesibo_linux() {
   echo "installing libmesibo on linux"
-  curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/linux/libmesibo.so -o /usr/lib/libmesibo.so
-  curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/include/mesibo.h -o /usr/include/mesibo.h
+  curl -ks https://raw.githubusercontent.com/Nagendra1997/libmesibo/master/linux/libmesibo.so -o /usr/lib/libmesibo.so
+  curl -ks https://raw.githubusercontent.com/Nagendra1997/libmesibo/master/include/mesibo.h -o /usr/include/mesibo.h
   ldconfig
   echo "Installed libmesibo"
 }
 
 install_mesibo_raspberry() {
   echo "installing libmesibo on Raspberry"
-  curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/raspberry/libmesibo.so -o /usr/lib/libmesibo.so
-  curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/include/mesibo.h -o /usr/include/mesibo.h
+  curl -ks https://raw.githubusercontent.com/Nagendra1997/libmesibo/master/raspberry/libmesibo.so -o /usr/lib/libmesibo.so
+  curl -ks https://raw.githubusercontent.com/Nagendra1997/libmesibo/master/include/mesibo.h -o /usr/include/mesibo.h
   ldconfig
   echo "Installed libmesibo"
 }
