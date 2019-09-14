@@ -1,5 +1,7 @@
 #pragma once
 
+#include <inttypes.h>
+
 typedef struct _tMessageParams {
 	uint64_t id;
 	uint64_t refid;
