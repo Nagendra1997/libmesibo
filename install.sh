@@ -20,7 +20,15 @@
 
 install_mesibo_linux() {
   echo "installing libmesibo on linux"
-  curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/linux/libmesibo64.so -o /usr/lib/libmesibo64.so
+  curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/linux/libmesibo.so -o /usr/lib/libmesibo.so
+  curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/include/mesibo.h -o /usr/include/mesibo.h
+  ldconfig
+  echo "Installed libmesibo"
+}
+
+install_mesibo_raspberry() {
+  echo "installing libmesibo on Raspberry"
+  curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/raspberry/libmesibo.so -o /usr/lib/libmesibo.so
   curl -ks https://raw.githubusercontent.com/mesibo/libmesibo/master/include/mesibo.h -o /usr/include/mesibo.h
   ldconfig
   echo "Installed libmesibo"
@@ -32,7 +40,7 @@ sorry() {
 }
 
 # OS-specific installations of mesibo follows
-case $(uname -s) in
+case $(uname -a) in
   *[Dd]arwin*)
     # Mac OS
     echo "Detected Mac OS"
@@ -45,6 +53,10 @@ case $(uname -s) in
     else
       sorry "Mac OS without homebrew or MacPorts"
     fi
+    ;;
+  *[Rr]aspberry*)
+    echo "Detected Raspberry Pi"
+    install_mesibo_raspberry
     ;;
   *)
     if [ -f /etc/debian_version ]; then
