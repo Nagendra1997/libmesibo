@@ -1,6 +1,11 @@
 #pragma once
-
+#ifndef __STDC_FORMAT_MACROS
+#define __STDC_FORMAT_MACROS
+#define __STDC_LIMIT_MACROS
+#endif
+#include <stdio.h>
 #include <inttypes.h>
+
 
 typedef struct _tMessageParams {
 	uint64_t id;
